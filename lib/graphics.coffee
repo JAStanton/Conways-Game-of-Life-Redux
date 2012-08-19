@@ -1,3 +1,8 @@
+# Graphics Library
+# Author: Jonathan Stanton
+# Website: jastanton.com
+# Date: Aug 19, 2012
+
 class window.Graphics
   STROKE: "#000"
   FILL: "#DDD"

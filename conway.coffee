@@ -1,3 +1,8 @@
+# Conways Game of Life
+# Author: Jonathan Stanton
+# Website: jastanton.com
+# Date: Aug 19, 2012
+
 class window.Conway extends Canvas
   
   tick: ->

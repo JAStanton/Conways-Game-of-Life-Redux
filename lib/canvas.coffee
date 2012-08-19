@@ -1,3 +1,8 @@
+# Canvas Library
+# Author: Jonathan Stanton
+# Website: jastanton.com
+# Date: Aug 19, 2012
+
 class window.Canvas extends Graphics
   GRID_STROKE: "lightgrey"
   COL_W: 10
