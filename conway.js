@@ -45,6 +45,19 @@
       return _results;
     };
 
+    Conway.prototype.numNeighbors = function(col, row) {
+      var down, down_left, down_right, left, right, up, up_left, up_right;
+      up = this.get(col, row - 1);
+      down = this.get(col, row + 1);
+      left = this.get(col - 1, row);
+      right = this.get(col + 1, row);
+      up_right = this.get(col + 1, row - 1);
+      down_right = this.get(col + 1, row + 1);
+      down_left = this.get(col - 1, row + 1);
+      up_left = this.get(col - 1, row - 1);
+      return up + down + left + right + up_right + down_right + down_left + up_left;
+    };
+
     Conway.prototype.bindEvents = function() {
       var _this = this;
       this.canvas.onmousedown = function(e) {
@@ -59,6 +72,16 @@
       return this.canvas.onmousemove = function(e) {
         return _this.onMouseMove(e);
       };
+    };
+
+    Conway.prototype.getMousePos = function(e) {
+      var col, position, row, x, y;
+      position = this.canvas.getBoundingClientRect();
+      x = e.clientX - position.left;
+      y = e.clientY - position.top;
+      col = Math.floor(x / this.COL_W);
+      row = Math.floor(y / this.ROW_H);
+      return [col, row];
     };
 
     Conway.prototype.onMouseDown = function(e) {
@@ -76,29 +99,6 @@
       if (this.mouse_state) {
         return this.set(this.getMousePos(e));
       }
-    };
-
-    Conway.prototype.getMousePos = function(e) {
-      var col, position, row, x, y;
-      position = this.canvas.getBoundingClientRect();
-      x = e.clientX - position.left;
-      y = e.clientY - position.top;
-      col = Math.floor(x / this.COL_W);
-      row = Math.floor(y / this.ROW_H);
-      return [col, row];
-    };
-
-    Conway.prototype.numNeighbors = function(col, row) {
-      var down, down_left, down_right, left, right, up, up_left, up_right;
-      up = this.get(col, row - 1);
-      down = this.get(col, row + 1);
-      left = this.get(col - 1, row);
-      right = this.get(col + 1, row);
-      up_right = this.get(col + 1, row - 1);
-      down_right = this.get(col + 1, row + 1);
-      down_left = this.get(col - 1, row + 1);
-      up_left = this.get(col - 1, row - 1);
-      return up + down + left + right + up_right + down_right + down_left + up_left;
     };
 
     return Conway;
