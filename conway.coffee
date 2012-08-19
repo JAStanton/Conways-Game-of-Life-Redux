@@ -18,11 +18,8 @@ class window.Conway extends Canvas
         kill.push [col,row] if is_alive && num_neighbours > 3 # overcrowding
         resurect.push [col,row] if !is_alive && num_neighbours == 3 # reproduction
 
-    for cell in kill
-      @grid[cell[0]][cell[1]] = 0
-    
-    for cell in resurect
-      @grid[cell[0]][cell[1]] = 1
+    @set cell..., 0 for cell in kill
+    @set cell... for cell in resurect
 
   numNeighbors: (col,row)->
     up         = @get( col     , row - 1 )
@@ -45,11 +42,17 @@ class window.Conway extends Canvas
   onMouseDown:(e) ->
     @mouse_state = 1
     @PAUSED = 1
-    @set(@getMousePos(e))
+    [col,row] = @getMousePos(e)
+    @set(col,row)
+    @drawGridItem(col,row)
 
   onMouseUp:(e) -> 
     @mouse_state = 0
     @PAUSED = 0
 
-  onMouseMove:(e) -> @set(@getMousePos(e)) if @mouse_state
+  onMouseMove:(e) -> 
+    if @mouse_state
+      [col,row] = @getMousePos(e)
+      @set(col,row)
+      @drawGridItem(col,row)
   

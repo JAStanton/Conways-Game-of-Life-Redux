@@ -54,13 +54,12 @@ class window.Canvas extends Graphics
       for y in [0...@num_rows]
         @grid[x][y] = Math.round(Math.random())
 
-  set: ([col,row]) ->
-    @drawGridItem(col,row)
-    @grid[col][row] = 1
+  set: (col,row,value = 1) ->
+    @grid[col][row] = value
 
   get: (col,row)->
    return 0 if col < 0 || row < 0 || col >= @num_cols || row >= @num_rows
-
+   
    @grid[col][row]
 
   clearCanvas: ->
