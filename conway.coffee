@@ -3,7 +3,7 @@ class window.Conway extends Canvas
   tick: ->
     kill = []
     resurect = []
-    
+
     for cols,col in @grid
       for value,row in cols
         num_neighbours = @numNeighbors(col,row)
@@ -37,16 +37,6 @@ class window.Conway extends Canvas
     @canvas.onmouseout  = (e) => @onMouseUp(e)
     @canvas.onmousemove = (e) => @onMouseMove(e)
   
-  getMousePos: (e) ->
-    position = @canvas.getBoundingClientRect()
-    x = e.clientX - position.left
-    y = e.clientY - position.top
-
-    col = Math.floor(x / @COL_W)
-    row = Math.floor(y / @ROW_H)
-
-    [col,row]
-
   onMouseDown:(e) ->
     @mouse_state = 1
     @PAUSED = 1

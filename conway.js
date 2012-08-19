@@ -74,16 +74,6 @@
       };
     };
 
-    Conway.prototype.getMousePos = function(e) {
-      var col, position, row, x, y;
-      position = this.canvas.getBoundingClientRect();
-      x = e.clientX - position.left;
-      y = e.clientY - position.top;
-      col = Math.floor(x / this.COL_W);
-      row = Math.floor(y / this.ROW_H);
-      return [col, row];
-    };
-
     Conway.prototype.onMouseDown = function(e) {
       this.mouse_state = 1;
       this.PAUSED = 1;

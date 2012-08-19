@@ -79,3 +79,13 @@ class window.Canvas extends Graphics
 
   drawGridItem: (col,row,f = @ENTITY_FILL) ->
     @drawSquare col * @COL_W,row * @ROW_H,@COL_W,@ROW_H,"",f
+
+  getMousePos: (e) ->
+    position = @canvas.getBoundingClientRect()
+    x = e.clientX - position.left
+    y = e.clientY - position.top
+
+    col = Math.floor(x / @COL_W)
+    row = Math.floor(y / @ROW_H)
+
+    [col,row]
