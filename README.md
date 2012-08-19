@@ -1,3 +1,3 @@
 Conways Game of Life
 ====================
-[jastanton.com](http://jastanton.com/ "Portfolio")
+[jastanton.com](http://jastanton.com/ "Portfolio ")

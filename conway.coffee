@@ -43,8 +43,8 @@ class window.Conway extends Canvas
     @mouse_state = 1
     @PAUSED = 1
     [col,row] = @getMousePos(e)
-    @set(col,row)
-    @drawGridItem(col,row)
+    @set col, row
+    @drawGridItem col,row
 
   onMouseUp:(e) -> 
     @mouse_state = 0
@@ -53,6 +53,6 @@ class window.Conway extends Canvas
   onMouseMove:(e) -> 
     if @mouse_state
       [col,row] = @getMousePos(e)
-      @set(col,row)
-      @drawGridItem(col,row)
+      @set col,row
+      @drawGridItem col,row
   
