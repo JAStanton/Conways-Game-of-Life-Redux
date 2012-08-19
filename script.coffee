@@ -88,8 +88,7 @@ class Conway extends Graphics
 
   onMouseUp:(e) -> @mouse_state = 0
 
-  onMouseMove:(e) ->
-    @set(@getPos(e)) if @mouse_state
+  onMouseMove:(e) -> @set(@getPos(e)) if @mouse_state
   
   set: ([col,row]) ->
     @drawGridItem(col,row)
