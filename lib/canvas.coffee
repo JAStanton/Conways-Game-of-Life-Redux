@@ -7,7 +7,7 @@ class window.Canvas extends Graphics
   GRID_STROKE: "lightgrey"
   COL_W: 10
   ROW_H: 10
-  FPS: 25
+  FPS: 30
   PAUSED: false 
   ENTITY_FILL: "green"
 
